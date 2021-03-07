@@ -32,26 +32,35 @@ namespace SpellChecker
 
             var wordsQueue = new Queue<string>(text_tb.Text.Split(' ', StringSplitOptions.RemoveEmptyEntries));
 
-            var index = 0;
-            while (wordsQueue.Any())
+            try
             {
-                var sb = new StringBuilder();
-                while (sb.Length < 500 && wordsQueue.Any())
+                var index = 0;
+                while (wordsQueue.Any())
                 {
-                    sb.Append(wordsQueue.Dequeue());
-                    sb.Append(' ');
+                    var sb = new StringBuilder();
+                    while (sb.Length < 500 && wordsQueue.Any())
+                    {
+                        sb.Append(wordsQueue.Dequeue());
+                        sb.Append(' ');
+                    }
+
+                    var token = sb.ToString();
+                    var errors = await _speller.CheckTextAsync(token);
+                    foreach (var error in errors)
+                    {
+                        text_tb.SelectionStart = index + error.Position;
+                        text_tb.SelectionLength = error.Length;
+                        text_tb.SelectionBackColor = Color.Yellow;
+                    }
+
+                    index += token.Length;
                 }
 
-                var token = sb.ToString();
-                var errors = await _speller.CheckTextAsync(token);
-                foreach (var error in errors)
-                {
-                    text_tb.SelectionStart = index + error.Position;
-                    text_tb.SelectionLength = error.Length;
-                    text_tb.SelectionBackColor = Color.Yellow;
-                }
-
-                index += token.Length;
+                MessageBox.Show("Проверка завершена", "Проверка", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
