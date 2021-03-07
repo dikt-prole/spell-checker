@@ -39,7 +39,6 @@ namespace SpellChecker
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.text_tb, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.check_btn, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -47,25 +46,27 @@ namespace SpellChecker
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // text_tb
             // 
             this.text_tb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.text_tb.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.text_tb.Location = new System.Drawing.Point(3, 3);
             this.text_tb.Name = "text_tb";
-            this.text_tb.Size = new System.Drawing.Size(794, 414);
+            this.text_tb.Size = new System.Drawing.Size(794, 404);
             this.text_tb.TabIndex = 0;
             this.text_tb.Text = "";
             // 
             // check_btn
             // 
             this.check_btn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.check_btn.Location = new System.Drawing.Point(697, 423);
+            this.check_btn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.check_btn.Location = new System.Drawing.Point(677, 413);
             this.check_btn.Name = "check_btn";
-            this.check_btn.Size = new System.Drawing.Size(100, 24);
+            this.check_btn.Size = new System.Drawing.Size(120, 34);
             this.check_btn.TabIndex = 1;
             this.check_btn.Text = "Проверить";
             this.check_btn.UseVisualStyleBackColor = true;

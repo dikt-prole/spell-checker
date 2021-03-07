@@ -24,6 +24,9 @@ namespace SpellChecker
             {
                 Icon = new Icon(stream);
             }
+
+            text_tb.Font = new Font(text_tb.Font.FontFamily, 12);
+            check_btn.Font = new Font(check_btn.Font.FontFamily, 12);
         }
 
         private async void check_btn_Click(object sender, EventArgs e)
